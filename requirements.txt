@@ -1,4 +1,2 @@
 Django
 psycopg2
-requests<2.2.29
-urllib3 < 2.0
