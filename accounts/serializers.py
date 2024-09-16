@@ -22,10 +22,10 @@ class UserSerializer(serializers.ModelSerializer):
         validated_data.pop("password_confirm")
         return User.objects.create_user(**validated_data)
 
-    def update(sef, instance, validated_data):
+    def update(self, instance, validated_data):
         instance.id = validated_data.get("id", instance.id)
         instance.email = validated_data.get("email", instance.email)
-        instance.username = validated_data.get("email", instance.username)
+        instance.username = validated_data.get("username", instance.username)
         instance.save()
         return instance
 
