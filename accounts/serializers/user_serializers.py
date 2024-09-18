@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["id", "email" ,"username", "password", "password_confirm"]
+        fields = ["id", "email" , "password", "password_confirm"]
         extra_kwargs = {
             "password" : {"write_only" : True}
         }
@@ -25,7 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.id = validated_data.get("id", instance.id)
         instance.email = validated_data.get("email", instance.email)
-        instance.username = validated_data.get("username", instance.username)
         instance.save()
         return instance
 

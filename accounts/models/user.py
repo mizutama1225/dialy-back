@@ -26,7 +26,6 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     email = models.EmailField(max_length=255, unique=True)
-    username = models.CharField(max_length=255, blank=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
