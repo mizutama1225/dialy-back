@@ -10,8 +10,8 @@ from accounts.views import UserViewSet, ProfileViewSet, LoginViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'profiles', ProfileViewSet)
-router.register(r'login', LoginViewSet)
+router.register(r'profiles', ProfileViewSet, basename='profile')
+router.register(r'login', LoginViewSet, basename='login')
 
 urlpatterns = [
     path('doc/download/', SpectacularAPIView.as_view(), name='schema'),

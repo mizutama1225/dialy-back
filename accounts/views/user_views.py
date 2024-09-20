@@ -8,6 +8,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 # The actions provided by the ModelViewSet class are
 # .list(), .retrieve(), .create(),
 # .update(), .partial_update(), and .destroy().
