@@ -56,5 +56,5 @@ target/
 # Vim
 .ropeproject
 
-accounts/migrations
-writtenletter/migrations
+accounts/migrations/
+writtenletter/migrations/
