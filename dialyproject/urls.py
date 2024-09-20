@@ -4,7 +4,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-
+from writtenletter import views
+from writtenletter.views import WrittenLetterViewSet
 
 from accounts.views import UserViewSet, ProfileViewSet, LoginViewSet
 
@@ -12,6 +13,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'profiles', ProfileViewSet, basename='profile')
 router.register(r'login', LoginViewSet, basename='login')
+router.register(r'writtenletter', WrittenLetterViewSet)
 
 urlpatterns = [
     path('doc/download/', SpectacularAPIView.as_view(), name='schema'),

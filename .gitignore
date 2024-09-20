@@ -57,3 +57,4 @@ target/
 .ropeproject
 
 accounts/migrations
+writtenletter/migrations
