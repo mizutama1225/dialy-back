@@ -6,11 +6,12 @@ from rest_framework import routers
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 
-from accounts.views import UserViewSet, ProfileViewSet
+from accounts.views import UserViewSet, ProfileViewSet, LoginViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'profiles', ProfileViewSet)
+router.register(r'login', LoginViewSet)
 
 urlpatterns = [
     path('doc/download/', SpectacularAPIView.as_view(), name='schema'),
