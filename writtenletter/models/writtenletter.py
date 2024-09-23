@@ -7,7 +7,8 @@ from django.apps import apps
 
 
 class WrittenLetterManager(models.Manager):
-    def create(self, user, content, createdat):
+    def create(self, user, content):
+        createdat = timezone.now()
         letter = self.model(user=user, content=content, createdat=createdat)
         letter.save()
         InboxLetter = apps.get_model('writtenletter', 'InboxLetter')

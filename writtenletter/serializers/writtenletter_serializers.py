@@ -8,4 +8,4 @@ from rest_framework import serializers
 class WrittenLetterSerializer(serializers.ModelSerializer):
     class Meta:
         model = WrittenLetter
-        fields = '__all__'
+        fields = ["id", "user", "content"]

@@ -37,7 +37,7 @@ class LoginViewSet(viewsets.ViewSet):
 
         login(request, user)
         return Response(
-            data = {"msg" : "Login successful"},
+            data = {"id" : user.id},
             status = status.HTTP_200_OK
         )
 
