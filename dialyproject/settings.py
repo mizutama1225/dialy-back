@@ -143,3 +143,6 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
+
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_BACKEEND = 'db+postgresql://postgres@db/postgres'
