@@ -6,13 +6,9 @@ from rest_framework import status
 from rest_framework.decorators import action
 from django.views.decorators.csrf import csrf_exempt
 
-from writtenletter.serializers import SendSerializer
 from writtenletter.tasks import random_send
 
 class LetterViewSet(viewsets.ViewSet):
-
-    send_selializer_class = SendSerializer
-
 
     @csrf_exempt
     @action(detail=False, methods=["GET"])
@@ -22,3 +18,4 @@ class LetterViewSet(viewsets.ViewSet):
             data = {"msg" : "send successful"},
             status = status.HTTP_200_OK
         )
+
