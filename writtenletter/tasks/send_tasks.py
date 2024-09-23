@@ -1,8 +1,7 @@
-
 from celery import shared_task
 
 
 @shared_task
-def task1():
+def random_send():
     print('This is an example task')
     return
