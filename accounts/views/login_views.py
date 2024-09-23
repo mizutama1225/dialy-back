@@ -5,10 +5,8 @@ from rest_framework import status
 from rest_framework.decorators import action
 from django.views.decorators.csrf import csrf_exempt
 
-
-
-
 from accounts.serializers import LoginSerializer
+from accounts.tasks import task1
 
 
 class LoginViewSet(viewsets.ViewSet):
@@ -48,6 +46,8 @@ class LoginViewSet(viewsets.ViewSet):
     @action(detail=False, methods=["POST"])
     def logout(self, request):
         logout(request)
+        task1.apply_async(args=(), countdown=5)
+
         return Response(
             data = {"msg" : "Logout successful"},
             status = status.HTTP_200_OK
