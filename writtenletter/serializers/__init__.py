@@ -1,2 +1,1 @@
-from writtenletter.serializers.writtenletter_serializers import WrittenLetterSerializer
 from writtenletter.serializers.send_serializers import SendSerializer
