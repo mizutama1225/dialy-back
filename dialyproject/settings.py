@@ -146,3 +146,21 @@ SPECTACULAR_SETTINGS = {
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_BACKEEND = 'db+postgresql://postgres@db/postgres'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

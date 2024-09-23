@@ -15,10 +15,10 @@ class LetterViewSet(viewsets.ViewSet):
 
 
     @csrf_exempt
-    @action(detail=False, methods=["POST"])
+    @action(detail=False, methods=["GET"])
     def send(self, request):
         random_send.apply_async((), countdown=20)
         return Response(
-            data = {"msg" : "sent"},
+            data = {"msg" : "send successful"},
             status = status.HTTP_200_OK
         )
