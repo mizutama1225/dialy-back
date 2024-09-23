@@ -9,9 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 from writtenletter.serializers import SendSerializer
 from writtenletter.tasks import random_send
 
-class SendViewSet(viewsets.ViewSet):
+class LetterViewSet(viewsets.ViewSet):
 
-    selializer_class = SendSerializer
+    send_selializer_class = SendSerializer
+
 
     @csrf_exempt
     @action(detail=False, methods=["POST"])

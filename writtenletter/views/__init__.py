@@ -1,1 +1,2 @@
-from writtenletter.views.send_views import SendViewSet
+from writtenletter.views.letter_views import LetterViewSet
+from writtenletter.views.writtenletter_views import WrittenLetterViewSet
