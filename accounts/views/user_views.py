@@ -29,7 +29,7 @@ class UserViewSet(viewsets.ModelViewSet):
         user = self.get_object()
         letters = user.received_letters.all().order_by('-received_at')
 
-        user_letters = []
+        user_letters = {}
 
         # 手紙をユーザーごとに整理
         for letter in letters:
