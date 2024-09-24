@@ -12,4 +12,4 @@ class SentLetterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SentLetter
-        exclude = ["id"]
+        exclude = ["id","checked"]
