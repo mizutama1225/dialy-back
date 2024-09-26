@@ -37,9 +37,30 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['GET'])
     def letters(self, request, pk=None):
         user = self.get_object()
-        letters = user.received_letters.all()
-        serializer = SentLetterSerializer(letters, many=True)
-        return Response(serializer.data)
+        letters = user.received_letters.all().order_by('-received_at')
+
+        user_letters = {}
+
+        # 手紙をユーザーごとに整理
+        for letter in letters:
+            sender = letter.letter.user
+            sender_id = str(sender.id)
+
+
+            serialized = ProfileSerializer(sender.profile)
+            if sender_id not in user_letters:
+                user_letters[sender_id] = {
+                    "profile": serialized.data,
+                    "letters": []
+                }
+
+            # 手紙の内容を追加
+            user_letters[sender_id]["letters"].append({
+                "content": letter.letter.content,
+                "date" : letter.received_at.isoformat()
+            })
+
+        return Response(user_letters)
 
 # The actions provided by the ModelViewSet class are
 # .list(), .retrieve(), .create(),
