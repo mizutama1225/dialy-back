@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 
 
+from accounts.serializers import ProfileSerializer
 from writtenletter.serializers import SentLetterSerializer
 
 User = get_user_model()
@@ -61,7 +62,3 @@ class UserViewSet(viewsets.ModelViewSet):
             })
 
         return Response(user_letters)
-
-# The actions provided by the ModelViewSet class are
-# .list(), .retrieve(), .create(),
-# .update(), .partial_update(), and .destroy().

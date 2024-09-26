@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser
+from django.apps import apps
 import uuid
 
 # Create your models here.
@@ -13,6 +14,8 @@ class UserManager(BaseUserManager):
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
+        profile_model = apps.get_model("accounts", "Profile")
+        profile_model.objects.create(user=user, username=email)
   # クラス属性
         return user
 
